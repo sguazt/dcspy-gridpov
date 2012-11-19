@@ -1,0 +1,75 @@
+<!--
+<!DOCTYPE dcs:gridpov-conf [
+-->
+
+<!ELEMENT dcs:gridpov-conf (dcs:java,dcs:mygridwrapper?,dcs:mygrid,dcs:povray,dcs:scene)>
+<!ATTLIST dcs:gridpov-conf
+	xmlns:dcs CDATA #FIXED "http://dcs.di.unipmn.it"
+	version (1.0) "1.0"
+>
+
+<!ELEMENT dcs:java (dcs:javac-cmd?,dcs:java-cmd?,dcs:java-cp?)> <!-- The Java configuration section -->
+<!ELEMENT dcs:javac-cmd (#PCDATA)> <!-- the Java "javac" command path -->
+<!ELEMENT dcs:java-cmd (#PCDATA)> <!-- the Java "java" command path -->
+<!ELEMENT dcs:java-cp (dcs:java-cp-item*)> <!-- the Java "classpath" options -->
+<!ELEMENT dcs:java-cp-item (#PCDATA)> <!-- A Java "classpath" option -->
+<!ELEMENT dcs:mygridwrapper (dcs:mygridwrapper-class?)> <!-- The MyGridWrapper configuration section -->
+<!ELEMENT dcs:mygridwrapper-class (#PCDATA)> <!-- The MyGridWrapper class name -->
+<!ELEMENT dcs:mygrid (dcs:mygrid-cmd?,dcs:mygrid-jdf)> <!-- The MyGrid configuration section -->
+<!ELEMENT dcs:mygrid-cmd (#PCDATA)> <!-- The MyGrid "mygrid" command path -->
+<!ELEMENT dcs:mygrid-jdf (dcs:mygrid-jdf-store-path,dcs:mygrid-jdf-store-method,dcs:mygrid-jdf-tmp-path)> <!-- The MyGrid JDF configuration section -->
+<!ELEMENT dcs:mygrid-jdf-store-path (#PCDATA)> <!-- The MyGrid JDF storage path (e.g. $STORAGE) -->
+<!ELEMENT dcs:mygrid-jdf-store-method (#PCDATA)> <!-- The MyGrid JDF storage method (put/store) -->
+<!ELEMENT dcs:mygrid-jdf-tmp-path (#PCDATA)> <!-- The MyGrid JDF playpen (i.e. temporarily) path (e.g. $PLAYPEN) -->
+<!ELEMENT dcs:povray (dcs:povray-cmd?,dcs:povray-libs*,dcs:povray-exec-steps)> <!-- The Povray configuration section -->
+<!ELEMENT dcs:povray-cmd (#PCDATA)> <!-- The Povray "povray" command path. If missing, the MGROOT env variable is used -->
+<!ELEMENT dcs:povray-exec-steps (dcs:povray-exec-step*)> <!-- The number of povray execution steps -->
+<!ELEMENT dcs:povray-exec-step (dcs:povray-exec-step-infile,dcs:povray-exec-step-outfile?)> <!-- A step of the povray execution steps -->
+<!ELEMENT dcs:povray-exec-step-infile (#PCDATA)> <!-- The input file path of a povray execution step -->
+<!ELEMENT dcs:povray-exec-step-outfile (#PCDATA)> <!-- The output file path of a povray execution step -->
+<!ELEMENT dcs:povray-libs (#PCDATA)> <!-- The path to extra Povray include files (e.g., for LightSysIV) -->
+<!ELEMENT dcs:scene (dcs:scene-files,dcs:scene-width?,dcs:scene-height?,dcs:scene-bounding?,dcs:scene-quality?,dcs:scene-antialias?,dcs:scene-alpha?,dcs:scene-lightbuf?,dcs:scene-vistabuf?,dcs:scene-blocksize?,dcs:scene-imagefmt?)> <!-- The Scene configuration section -->
+<!ATTLIST dcs:scene
+	label CDATA #IMPLIED
+>
+<!ELEMENT dcs:scene-width EMPTY>
+<!ATTLIST dcs:scene-width
+	value CDATA "320"
+>
+<!ELEMENT dcs:scene-height EMPTY>
+<!ATTLIST dcs:scene-height
+	value CDATA "200"
+>
+<!ELEMENT dcs:scene-bounding EMPTY>
+<!ATTLIST dcs:scene-bounding
+	threshold CDATA #REQUIRED
+>
+<!ELEMENT dcs:scene-quality EMPTY>
+<!ATTLIST dcs:scene-quality
+	value (0|1|2|3|4|5|6|7|8|9) #REQUIRED
+>
+<!ELEMENT dcs:scene-antialias EMPTY>
+<!ATTLIST dcs:scene-antialias
+	threshold CDATA #IMPLIED
+	method (1|2) #IMPLIED
+	jitter CDATA #IMPLIED
+	depth CDATA #IMPLIED
+>
+<!ELEMENT dcs:scene-alpha EMPTY>
+<!ELEMENT dcs:scene-lightbuf EMPTY>
+<!ELEMENT dcs:scene-vistabuf EMPTY>
+<!ELEMENT dcs:scene-blocksize EMPTY>
+<!ATTLIST dcs:scene-blocksize
+	value CDATA "64"
+>
+<!ELEMENT dcs:scene-imagefmt EMPTY>
+<!ATTLIST dcs:scene-imagefmt
+	type (C|N|P|T) "N"
+	bits (5|6|7|8|9|10|11|12|13|14|15|16) "8"
+>
+<!ELEMENT dcs:scene-files (dcs:scene-file*)>
+<!ELEMENT dcs:scene-file (#PCDATA)>
+
+<!--
+]>
+-->

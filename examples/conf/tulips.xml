@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE dcs:gridpov-conf SYSTEM "gridpov-conf.dtd">
+
+<dcs:gridpov-conf xmlns:dcs="http://dcs.di.unipmn.it" version="1.0">
+	<!-- MyGrid section -->
+	<dcs:mygrid>
+		<dcs:mygrid-cmd>/usr/local/opt/OurGrid/mygrid/bin/mygrid</dcs:mygrid-cmd>
+
+		<dcs:mygrid-jdf>
+			<dcs:mygrid-jdf-store-path>$STORAGE</dcs:mygrid-jdf-store-path>
+			<dcs:mygrid-jdf-store-method>store</dcs:mygrid-jdf-store-method>
+			<dcs:mygrid-jdf-tmp-path>$PLAYPEN</dcs:mygrid-jdf-tmp-path>
+		</dcs:mygrid-jdf>
+	</dcs:mygrid>
+
+	<!-- POV-Ray section -->
+	<dcs:povray>
+		<dcs:povray-cmd>/usr/local/bin/povray</dcs:povray-cmd>
+		<dcs:povray-exec-steps>
+			<dcs:povray-exec-step>
+				<dcs:povray-exec-step-infile>tulips.pov</dcs:povray-exec-step-infile>
+				<dcs:povray-exec-step-outfile>tulips.png</dcs:povray-exec-step-outfile>
+			</dcs:povray-exec-step>
+		</dcs:povray-exec-steps>
+	</dcs:povray>
+
+	<!-- Scene configurazione -->
+	<dcs:scene label="tulips">
+		<dcs:scene-files>
+			<dcs:scene-file>test/scenes/tulips.pov</dcs:scene-file>
+		</dcs:scene-files>
+		<dcs:scene-width value="320"/>
+		<dcs:scene-height value="240"/>
+<!--
+		<dcs:scene-bounding threshold="3"/>
+		<dcs:scene-quality value="3"/>
+		<dcs:scene-antialias threshold="3" method="1" jitter="0.0" depth="0"/>
+		<dcs:scene-alpha/>
+		<dcs:scene-lightbuf/>
+		<dcs:scene-vistabuf/>
+-->
+		<dcs:scene-antialias threshold="3"/>
+		<dcs:scene-blocksize value="64"/>
+		<dcs:scene-imagefmt type="N" bits="8"/>
+	</dcs:scene>
+</dcs:gridpov-conf>
